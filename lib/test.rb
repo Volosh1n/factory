@@ -15,4 +15,4 @@ Customer1 = Factory.new(:name, :address) do
   end
 end
 
-puts Customer1.new('Dave', '123 Main').greeting # => "Hello Dave!"
+puts Customer1.new('Dave', '123 Main').greeting
