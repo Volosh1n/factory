@@ -69,14 +69,6 @@ class Factory
         args.size
       end
 
-      def members
-        return_array = []
-        args.each do |arg|
-          return_array << arg
-        end
-        return_array
-      end
-
       def select(&block)
         values.select(&block)
       end
@@ -98,6 +90,7 @@ class Factory
       alias_method :to_a, :values
       alias_method :eql?, :==
       alias_method :size, :length
+      alias_method :members, :args
     end
   end
 end
