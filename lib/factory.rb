@@ -78,9 +78,7 @@ class Factory
       end
 
       def values_at(*indexes)
-        return_array = Array.new
-        indexes.each { |index| return_array << values[index] }
-        return_array
+        indexes.map { |index| values[index] }
       end
 
       def ==(obj)
