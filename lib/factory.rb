@@ -28,10 +28,10 @@ class Factory
       class_eval(&block) if block_given?
 
       def initialize(*vars)
-        raise ArgumentError, 'Extra arguments passed.' if args.count != vars.count
+        raise ArgumentError, "Expected #{args.count} arguments" if args.count != vars.count
 
         args.each_index do |index|
-          instance_variable_set(:"@#{args[index]}", vars[index])
+          instance_variable_set("@#{args[index]}", vars[index])
         end
       end
 
