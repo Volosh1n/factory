@@ -44,9 +44,6 @@ class Factory
         end
 
         def to_h
-          # Hash[instance_variables.map do |variable|
-          #   [variable.to_s.delete('@').to_sym, instance_variable_get(variable)]
-          # end]
           args.zip(values).to_h
         end
 
