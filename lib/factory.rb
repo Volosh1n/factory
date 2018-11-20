@@ -38,9 +38,7 @@ class Factory
         end
 
         def dig(*args)
-          first_arg = self[args.first]
-          return nil if first_arg == nil
-          args.one? ? first_arg : first_arg.dig(*args[1..-1])
+          args.reduce(to_h) { |memo, arg| (memo[arg].is_a? NilClass) ? (return nil) : memo[arg] }
         end
 
         def to_h
