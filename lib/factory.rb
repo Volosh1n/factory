@@ -1,3 +1,5 @@
+require 'pry'
+
 class Factory
   class << self
     def new(*args, &block)
@@ -38,7 +40,13 @@ class Factory
         end
 
         def dig(*args)
-          args.reduce(to_h) { |memo, arg| (memo[arg].is_a? NilClass) ? (return nil) : memo[arg] }
+          args.reduce(to_h) do |hash, key|
+            if !hash[key].nil?
+              hash[key]
+            else
+              return nil
+            end
+          end
         end
 
         def to_h
