@@ -40,9 +40,9 @@ class Factory
         end
 
         def dig(*args)
-          args.reduce(to_h) do |hash, key|
-            if !hash[key].nil?
-              hash[key]
+          args.reduce(to_h) do |hash, arg|
+            if !hash[arg].nil?
+              hash[arg]
             else
               return nil
             end
